@@ -23,7 +23,7 @@ jobs:
             const commit_msg = steps.commit_msg_timestamp.outputs.commit_message ; 
             const repowner = github.repository_owner;
             const repo = github.repository;
-            const commitURL = `https://github.com/${{repowner}}/${{repo}}/commit/${{SHA}}`;
+            const commitURL = `https://github.com/${repowner}/${repo}/commit/${SHA}`;
 
             await github.rest.repos.createCommitComment({
               owner: repowner,
