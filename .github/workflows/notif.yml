@@ -20,14 +20,14 @@ jobs:
           script: |
             const ACTOR = github.actor;
             const SHA = github.sha;
-            //const latestCommitMessage =  github.event.head_commit.message; 
+            const commit_msg = steps.commit_msg_timestamp.outputs.commit_message ; 
             const repo_owner = github.repository_owner;
             const repo = github.repository;
-            const commitURL = `https://github.com/${repo_owner}/${repo}/commit/${SHA}`;
+            const commitURL = `https://github.com/${{repo_owner}}/${{repo}}/commit/${{SHA}}`;
 
             await github.rest.repos.createCommitComment({
               owner: repo_owner,
               repo: repo,
               commit_sha: SHA,
-              body: `New commit by **${ACTOR}**\n\n[View Commit](${commitURL})`
+              body: `New commit by **${{ACTOR}}**\n\nCommit message : **${{commit_msg}}**\n\n[View Commit](${{commitURL}})`
             });
