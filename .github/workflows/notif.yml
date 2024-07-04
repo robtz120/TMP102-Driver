@@ -25,6 +25,8 @@ jobs:
             const repo = github.repository;
             const commitURL = `https://github.com/${repowner}/${repo}/commit/${SHA}`;
 
+            console.log(`ACTOR: ${ACTOR}`);
+
             await github.rest.repos.createCommitComment({
               owner: repowner,
               repo: repo,
