@@ -1,0 +1,35 @@
+name: Notify for a commit done by someone #name of the github action.
+on: 
+  push: 
+    branches: 
+     -main 
+jobs:
+ notification_commit:
+      name: notif_commit
+      runs-on: ubuntu-latest #Defining the type of machine to run the job.
+      steps: 
+        - name: code checking
+          uses: actions/checkout@v2 #To checkout the code.
+        - name: Commit comment
+          with: 
+            script: |
+              const ACTOR = github.actor;
+              const SHA =  github.sha;
+              const message = github.context.payload.head_commit.message;
+              const repo_owner = github.repository_owner;
+              const repo = github.repository;
+              const commitURL = `https://github.com/${repo_owner}/${repo}/commit/${SHA}`;
+              await github.rest.repos.createCommitComment({
+                owner: repo_owner,
+                repo: repo,
+                commit_sha: commitSha,
+                body: `New commit by **${ACTOR}**\n\nCommit message: **${message}**\n\n[View Commit](${commitURL})`});
+   
+
+               
+                        
+      
+  
+ 
+
+
