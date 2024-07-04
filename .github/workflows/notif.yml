@@ -20,6 +20,7 @@ jobs:
           script: |
             const ACTOR = github.actor;
             const SHA = github.sha;
+            const latestCommitMessage = github.context.payload.commits[0].message; // Assumes at least one commit in the push payload
             const repoOwner = github.context.repo.owner;
             const repoName = github.context.repo.repo;
             const commitURL = `https://github.com/${repoOwner}/${repoName}/commit/${SHA}`;
@@ -28,5 +29,5 @@ jobs:
               owner: repoOwner,
               repo: repoName,
               commit_sha: SHA,
-              body: `New commit by **${ACTOR}**\n\n[View Commit](${commitURL})`
+              body: `New commit by **${ACTOR}**\n\nCommit message: **${latestCommitMessage}**\n\n[View Commit](${commitURL})`
             });
