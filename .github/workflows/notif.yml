@@ -1,5 +1,5 @@
 
-name: Notify for a commit done by someone #name of the github action.
+name: Notify for a commit done by someone 
 on: 
   push: 
     branches: 
@@ -7,11 +7,12 @@ on:
 jobs:
  notification_commit:
       name: notif_commit
-      runs-on: ubuntu-latest #Defining the type of machine to run the job.
+      runs-on: ubuntu-latest 
       steps: 
         - name: code checking
-          uses: actions/checkout@v2 #To checkout the code.
+          uses: actions/checkout@v2
         - name: Commit comment
+          uses: actions/github-script@V6 
           with: 
             script: |
               const ACTOR = github.actor;
