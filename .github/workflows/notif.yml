@@ -1,4 +1,3 @@
-
 name: Notify for a commit done by someone 
 on: 
   push: 
@@ -12,7 +11,7 @@ jobs:
         - name: code checking
           uses: actions/checkout@v2
         - name: Commit comment
-          uses: actions/github-script@V6 
+          uses: actions/github-script@v6 
           with: 
             script: |
               const ACTOR = github.actor;
