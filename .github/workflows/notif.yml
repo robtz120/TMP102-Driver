@@ -29,5 +29,5 @@ jobs:
               owner: repowner,
               repo: repo,
               commit_sha: SHA,
-              body: `New commit by **${{ACTOR}}**\n\nCommit message : **${{commit_msg}}**\n\n[View Commit](${{commitURL}})`
+              body: `New commit by **${ACTOR}**\n\nCommit message : **${commit_msg}**\n\n[View Commit](${commitURL})`
             });
