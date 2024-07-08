@@ -2,10 +2,10 @@ name : Excel file automation with python
 
 on : 
   schedule : 
-   - cron : '0 10 * * *'
+    - cron : '0 10 * * *'
 jobs : 
   update_commit : 
-    runs_on : ubuntu_latest
+    runs-on : ubuntu_latest
     steps : 
        - name : checking the code
          uses : actions/checkout@v2
