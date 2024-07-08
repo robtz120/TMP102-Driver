@@ -2,7 +2,7 @@ name : Excel file automation with python
 
 on : 
   schedule : 
-    - cron : '0 10 * * *'
+    - cron : '47 9 * * *'
 jobs : 
   update_commit : 
     runs-on : ubuntu_latest
