@@ -2,7 +2,7 @@ name : Excel file automation with python
 
 on : 
   schedule : 
-    - cron : '0/5 * * * *'
+    - cron : '*/5 * * * *'
 jobs : 
   update_commit : 
     runs-on : windows_latest
