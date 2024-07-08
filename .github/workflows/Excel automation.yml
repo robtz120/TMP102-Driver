@@ -2,7 +2,7 @@ name : Excel file automation with python
 
 on : 
   schedule : 
-    - cron : '47 9 * * *'
+    - cron : '0 10 * * *'
 jobs : 
   update_commit : 
     runs-on : windows_latest
@@ -12,10 +12,10 @@ jobs :
        - name : Python 
          uses: actions/setup-python@v2
          with : 
-            python-version : '3.8'
+            python-version : '3.x'
        - name : library installation 
          run : |
-          pip installation gitpython openpyxl datetime pytz
+          pip install gitpython openpyxl datetime pytz
        - name : automation
          run: python commit_excel_file.py  
             
