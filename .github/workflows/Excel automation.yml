@@ -19,6 +19,11 @@ jobs :
           pip install gitpython openpyxl datetime pytz pandas
        - name : automation
          run: python commit_excel_file.py  
+       - name : excel file artifacts
+         uses : action/upload-artifacts@v2
+         with:
+            name: commits-history
+            path: C:/Users/se93297/Desktop/TMP102-Driver-main/commits_history.xls
             
 
    
