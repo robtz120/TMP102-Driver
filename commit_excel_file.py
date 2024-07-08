@@ -16,7 +16,8 @@ else :
 commits =  list(Repo(local_file).iter_commits('main'))
 commit_data = []
 for commit in commits :
-   commit_date = commit.committed_datetime.astimezone(pytz.UTC) #convert the timezone to UTC.
+   timezonedate = pytz.timezone("Africa/Casablanca")
+   commit_date = commit.committed_datetime.astimezone(timezonedate)#convert the timezone to UTC.
    commit_data.append({'SHA' : commit.hexsha,
                        'Commiter' : commit.committer.name,
                        'Date' : commit_date.strftime('%Y-%m-%d %H:%M:%S %Z%z'), #string format
