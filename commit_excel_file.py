@@ -6,11 +6,11 @@ import pytz
 
 url_repo = "https://github.com/Mechatrobot/TMP102-Driver"
 local_file = "C:/Users/se93297/Desktop/test"
+repo = Repo(local_file)
 
 if not os.path.exists(local_file) :
   Repo.clone_from(url_repo,local_file);       #clone the repo into the local if it doesn't exist.
 else :
-  repo = Repo(local_file)
   origin = repo.remotes.origin #remote the repo to local directory
   origin.pull()   # pull the changes into the local repository
 commits =  list(repo.iter_commits('main'))
